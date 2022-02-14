@@ -23,23 +23,53 @@
 
     <link href="./main.css" rel="stylesheet" />
   </head>
-  <body style="max-width:1000px; margin: 0 auto;" class="p-8">
+  <body style="max-width: 1000px; margin: 0 auto" class="p-8">
     <h1 class="text-3xl">Welcome to Auto Skelly!</h1>
     <p class="py-2">
       This library is built to help you easily 'skellify' your objects with a
       few easy shapes.
     </p>
-    <p class="text-2xl pt-8 pb-2">Why use AutoSkelly?</p>
+
+    <div
+      class="bg-gray-200 p-6 rounded-md mt-8 leading-loose"
+      style="width: fit-content"
+    >
+      <h2 class="text-sm">TABLE OF CONTENTS</h2>
+      <hr style="border-top: dotted 3px; color: gray" class="my-2" />
+      <p><a href="#WhyUseAutoSkelly">Why use AutoSkelly?</a></p>
+      <p><a href="#GettingStarted">Getting Started</a></p>
+      <p><a href="#Examples">Examples</a></p>
+      <ol class="list-decimal ml-6">
+        <li><a href="#Text">Text Objects</a></li>
+        <li><a href="#Images">Images</a></li>
+        <li><a href="#Circles">Circles</a></li>
+        <li><a href="#Buttons">Buttons</a></li>
+      </ol>
+
+      <p><a href="#Customization">Customization</a></p>
+      <ol class="list-decimal ml-6">
+        <li><a href="#Color">Color</a></li>
+        <li><a href="#Animation">Animation Type</a></li>
+        <li><a href="#Activation">Activation</a></li>
+      </ol>
+      <p><a href="#API">API</a></p>
+      <ol class="list-decimal ml-6">
+        <li><a href="#Options">Options</a></li>
+        <li><a href="#Functions">Functions</a></li>
+      </ol>
+      <p><a href="#Limitations">Limitations</a></p>
+    </div>
+    <p class="text-2xl pt-8 pb-2" id="WhyUseAutoSkelly">Why use AutoSkelly?</p>
     <p>
-      It is well known that load time of on-screen content
-      is an important part of user satisfaction. However, if the on-page
-      content is complex and 'heavy' (lots of images for example), load times
-      can take over a second. To help improve the user experience, the concept
-      of 'skeletoning' was created. Essentially, a placeholder view of the
-      relevant content is created which is loaded quickly and replaced
-      dynamically as soon as the actual content becomes available. Examples of
-      this in the real-world are sites like YouTube, which rely heavily on
-      skeletons when loading image-heavy pages.
+      It is well known that load time of on-screen content is an important part
+      of user satisfaction. However, if the on-page content is complex and
+      'heavy' (lots of images for example), load times can take over a second.
+      To help improve the user experience, the concept of 'skeletoning' was
+      created. Essentially, a placeholder view of the relevant content is
+      created which is loaded quickly and replaced dynamically as soon as the
+      actual content becomes available. Examples of this in the real-world are
+      sites like YouTube, which rely heavily on skeletons when loading
+      image-heavy pages.
     </p>
     <br />
     <p>
@@ -51,9 +81,9 @@
       simple filler text or images, and pass in the AutoSkelly classes.
     </p>
 
-    <div class="grid place-items-center grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+    <div class="grid place-items-center grid-cols-1 md:grid-cols-2 mt-8">
       <div
-        class="w-full md:w-3/5 bg-white m-4 rounded-lg border-gray-300 shadow-lg"
+        class="w-full md:w-8/12 bg-white m-4 rounded-lg border-gray-300 shadow-lg"
       >
         <p class="pt-4 pl-4 text-3xl">Card Title</p>
         <p class="pl-4 pb-4 pt-2 text-sm">Card Subtitle</p>
@@ -73,7 +103,7 @@
       </div>
 
       <div
-        class="w-full md:w-3/5 bg-white m-4 rounded-lg border-gray-300 shadow-lg"
+        class="w-full md:w-8/12 bg-white m-4 rounded-lg border-gray-300 shadow-lg"
       >
         <div class="p-4 pb-0">
           <p class="skelly-text text-3xl">Card Title</p>
@@ -103,7 +133,7 @@
       </div>
     </div>
 
-    <p class="text-3xl pt-8 pb-2">Getting Started</p>
+    <p class="text-3xl pt-8 pb-2" id="GettingStarted">Getting Started</p>
     <p class="py-2 leading-loose">
       Getting your page skelified is super simple! You will need the
       <span class="bg-gray-800 text-white font-mono p-1 rounded-md"
@@ -145,9 +175,9 @@
       your user experience in minutes.
     </p>
 
-    <p class="text-3xl pt-8 pb-2">Examples</p>
+    <p class="text-3xl pt-8 pb-2" id="Examples">Examples</p>
 
-    <p class="text-xl pt-8 pb-2">Text</p>
+    <p class="text-xl pt-8 pb-2" id="Text">Text</p>
     <p>
       If you want to skellify some text, simply add
       <span class="bg-gray-800 text-white font-mono p-1 rounded-md"
@@ -196,7 +226,7 @@
       </iframe>
     </div>
 
-    <p class="text-xl pt-8 pb-2">Images</p>
+    <p class="text-xl pt-8 pb-2" id="Images">Images</p>
     <p>
       If you want to skellify an image, simply add
       <span class="bg-gray-800 text-white font-mono p-1 rounded-md"
@@ -249,7 +279,7 @@
       </iframe>
     </div>
 
-    <p class="text-xl pt-8 pb-2">Circles</p>
+    <p class="text-xl pt-8 pb-2" id="Circles">Circles</p>
     <p>
       Circle elements are common for things like profile pictures, so if you
       want to skellify a circle, simply add
@@ -304,7 +334,7 @@
       </iframe>
     </div>
 
-    <p class="text-xl pt-8 pb-2">Buttons</p>
+    <p class="text-xl pt-8 pb-2" id="Buttons">Buttons</p>
     <p>
       Explicit buttons on cards that need to be loaded are common, so auto
       skelly offers a class that will help make the look of these buttons
@@ -359,7 +389,9 @@
       </iframe>
     </div>
 
-    <p class="text-xl pt-8 pb-2">Change Color</p>
+    <p class="text-3xl pt-8 pb-2" id="Customization">Customization</p>
+
+    <p class="text-xl pt-8 pb-2" id="Color">Change Color</p>
     <p>
       Having a library to auto-skelify your components is great, but we can take
       this one step further to provide your users the best experience possible.
@@ -442,7 +474,7 @@
       </iframe>
     </div>
 
-    <p class="text-xl pt-8 pb-2">Change Animation Type</p>
+    <p class="text-xl pt-8 pb-2" id="Animation">Change Animation Type</p>
     <p>
       To further provide a more diverse set of customizability and theming
       opportunities,
@@ -517,7 +549,7 @@
       </iframe>
     </div>
 
-    <p class="text-xl pt-8 pb-2">
+    <p class="text-xl pt-8 pb-2" id="Activation">
       Activate or Deactivate AutoSkelly
     </p>
     <p>
@@ -585,12 +617,12 @@
       </iframe>
     </div>
 
-    <p class="text-3xl pt-8 pb-2">API</p>
+    <p class="text-3xl pt-8 pb-2" id="API">API</p>
     <p>
       AutoSkelly gives you a bunch of options that you can use to configure
       autoskelly yourself, or access through the provided methods.
     </p>
-    <p class="text-xl">Options</p>
+    <p class="text-xl mt-4" id="Options">Options</p>
 
     <div class="flex flex-col mt-8">
       <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -711,7 +743,7 @@
         </div>
       </div>
     </div>
-    <p class="text-xl mt-12 mb-4">Functions</p>
+    <p class="text-xl mt-12 mb-4" id="Functions">Functions</p>
     <p>
       The functions of AutoSkelly allow you to modify particular things about
       the skelletons themselves dynamically in other to make them fit your
@@ -731,6 +763,19 @@
       >
       </iframe>
     </div>
+
+    <p class="text-2xl pt-8 pb-2" id="Limitations">Known limitations</p>
+    <p>
+      AutoSkelly works by grabbing the size of given elements on first attempted
+      render by your browser and using that height and width to create the right
+      size skeleton. If you resize your browser window after the first load (and
+      the autoskelly instances are not replaced by the intended content) you
+      will see that some skeletons won't resize correctly anymore. This is known
+      and okay since the primary use case for these skeletons is to act as a
+      placeholder for real content arriving soon. This is just a heads up in
+      case some of your content takes a very long time to load and your users
+      enjoy resizing their windows while waiting!
+    </p>
 
     <p class="mt-8 mb-4">
       Thank you for using AutoSkelly! If you have any questions about the
