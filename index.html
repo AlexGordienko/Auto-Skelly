@@ -2,6 +2,69 @@
 <html>
   <head>
     <title>Auto Skelly!</title>
+    <title>{props.title}</title>
+    <meta name="description" content="{props.description}" />
+
+    <!-- {/* Twitter */} -->
+    <meta
+      name="twitter:card"
+      content="This simple library helps you quickly create flexible skeletons of your components to help perceived render time for your content."
+      key="twcard"
+    />
+    <meta
+      name="twitter:title"
+      content="Auto Skelly - A dead-simple UI Skeleton library by Alex Gordienko"
+    />
+    <meta
+      name="twitter:description"
+      content="This simple library helps you quickly create flexible skeletons of your components to help perceived render time for your content."
+    />
+    <meta name="twitter:url" content="https://auto-skelly.alexgordienko.com/" />
+    <meta
+      name="twitter:image"
+      content="https://raw.githubusercontent.com/AlexGordienko/Auto-Skelly/main/images/demo_header.png"
+    />
+    <meta name="twitter:creator" content="@alexgordienko_" key="twhandle" />
+
+    <!-- {/* Open Graph */} -->
+    <meta
+      property="og:image"
+      content="https://raw.githubusercontent.com/AlexGordienko/Auto-Skelly/main/images/demo_header.png"
+      key="ogimage"
+    />
+    <meta property="og:site_name" content="Auto Skelly " key="ogsitename" />
+    <meta
+      property="og:title"
+      content="Auto Skelly - A dead-simple UI Skeleton library by Alex Gordienko"
+      key="ogtitle"
+    />
+    <meta property="og:type" content="website" key="ogtype" />
+    <meta
+      property="og:description"
+      content="This simple library helps you quickly create flexible skeletons of your components to help perceived render time for your content."
+      key="ogdesc"
+    />
+    <meta
+      property="og:url"
+      content="https://auto-skelly.alexgordienko.com/"
+      key="ogurl"
+    />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-104974076-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-104974076-1");
+    </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/ico" href="./favicon.ico" width="32px" />
