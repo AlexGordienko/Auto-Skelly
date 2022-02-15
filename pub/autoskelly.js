@@ -118,7 +118,7 @@
 $("head").append(
   $('<link rel="stylesheet" type="text/css" />').attr(
     "href",
-    "./autoskelly.css"
+    "./pub/autoskelly.css"
   )
 );
 
