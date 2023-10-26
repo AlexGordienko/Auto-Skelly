@@ -22,4 +22,4 @@ Start off by cloning this repo somewhere as you will need the core autoskelly sc
 </body>
 ```
 
-Next, check out full usage documentation on the official guide [here](https://autoskelly.alexgordienko.com). Enjoy!
+Next, check out full usage documentation on the official guide [here](https://auto-skelly.alexgordienko.com/). Enjoy!
