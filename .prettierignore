@@ -1,0 +1,7 @@
+dist
+docs
+package-lock.json
+
+# Owned by other tasks/instructions — not touched by this CI setup.
+README.md
+tsup.config.ts

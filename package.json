@@ -44,10 +44,21 @@
     "start": "npx serve docs",
     "build": "tsup && npm run copy:demo",
     "copy:demo": "cp dist/auto-skelly.global.js docs/auto-skelly.global.js",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "devDependencies": {
+    "@vitest/coverage-v8": "^4.1.10",
+    "eslint": "^9.39.5",
+    "jsdom": "^27.0.1",
+    "prettier": "^3.9.6",
     "tsup": "^8.5.1",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.65.0",
+    "vitest": "^4.1.10"
   }
 }

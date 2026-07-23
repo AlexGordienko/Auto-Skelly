@@ -233,7 +233,15 @@ export class AutoSkelly {
         placeholder.style.width = widthStr;
 
         if (rect.height >= 2 * lineHeight) {
-          buildMultilineBars(doc, placeholder, rect.height, lineHeight, radius, this.color, this.animation);
+          buildMultilineBars(
+            doc,
+            placeholder,
+            rect.height,
+            lineHeight,
+            radius,
+            this.color,
+            this.animation
+          );
         } else {
           placeholder.style.height = rect.height > 0 ? `${rect.height}px` : "1em";
           placeholder.style.borderRadius = radius;
