@@ -1,6 +1,6 @@
 {
   "name": "auto-skelly",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Framework-agnostic skeleton loading placeholders. Auto-generates animated skeletons from your existing markup to improve perceived load time.",
   "license": "MIT",
   "author": "Alex Gordienko",
