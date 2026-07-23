@@ -1,24 +1,29 @@
 {
   "name": "auto-skelly",
   "version": "0.0.1",
-  "description": "Quickly and easily create skeletons of your web elements to improve percieved load times of content",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
-  },
+  "description": "Framework-agnostic skeleton loading placeholders. Auto-generates animated skeletons from your existing markup to improve perceived load time.",
+  "license": "MIT",
+  "author": "Alex Gordienko",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/csc309-winter-2021/js-library-gordien1.git"
+    "url": "git+https://github.com/AlexGordienko/Auto-Skelly.git"
   },
-  "author": "AlexGordienko",
-  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/csc309-winter-2021/js-library-gordien1/issues"
+    "url": "https://github.com/AlexGordienko/Auto-Skelly/issues"
   },
-  "homepage": "https://github.com/csc309-winter-2021/js-library-gordien1#readme",
-  "devDependencies": {
-    "express": "^4.17.1",
-    "reload": "^3.1.1"
+  "homepage": "https://auto-skelly.alexgordienko.com",
+  "keywords": [
+    "skeleton",
+    "skeleton-loader",
+    "skeleton-screen",
+    "placeholder",
+    "shimmer",
+    "loading",
+    "spinner",
+    "ux",
+    "perceived-performance"
+  ],
+  "scripts": {
+    "start": "npx serve docs"
   }
 }
