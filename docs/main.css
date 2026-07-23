@@ -2,3 +2,48 @@ body {
   font-family: "Rubik";
   background-color: #eef0f2;
 }
+
+/* Wrapper around each Prism code sample: a small language label above a
+   syntax-highlighted, copyable code block. */
+.code-block {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin: 1rem 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.code-block-label {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  background: #2d2d2d;
+  padding: 0.4rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.code-block pre[class*="language-"] {
+  margin: 0;
+  border-radius: 0;
+}
+
+/* Live demo controls */
+.demo-btn {
+  transition:
+    opacity 0.15s ease,
+    transform 0.1s ease;
+}
+
+.demo-btn:disabled {
+  cursor: not-allowed;
+}
+
+.demo-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.anim-btn-active {
+  outline: 2px solid #4f46e5;
+  outline-offset: 2px;
+}

@@ -1,46 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Auto Skelly - A dead-simple UI Skeleton library by Alex Gordienko</title>
-    <meta name="description" content="This simple library helps you quickly create flexible skeletons of your components to help perceived render time for your content." />
+    <title>Auto Skelly - Reversible loading skeletons for any markup, by Alex Gordienko</title>
+    <meta
+      name="description"
+      content="Auto Skelly is a tiny, framework-agnostic library that turns your real markup into animated loading skeletons and back again. No build step, no separate skeleton components, fully reversible."
+    />
 
     <!-- {/* Twitter */} -->
     <meta
       name="twitter:card"
-      content="This simple library helps you quickly create flexible skeletons of your components to help perceived render time for your content."
+      content="Auto Skelly is a tiny, framework-agnostic library that turns your real markup into animated loading skeletons and back again."
       key="twcard"
     />
     <meta
       name="twitter:title"
-      content="Auto Skelly - A dead-simple UI Skeleton library by Alex Gordienko"
+      content="Auto Skelly - Reversible loading skeletons for any markup"
     />
     <meta
       name="twitter:description"
-      content="This simple library helps you quickly create flexible skeletons of your components to help perceived render time for your content."
+      content="Auto Skelly is a tiny, framework-agnostic library that turns your real markup into animated loading skeletons and back again."
     />
     <meta name="twitter:url" content="https://auto-skelly.alexgordienko.com/" />
     <meta
       name="twitter:image"
-      content="https://raw.githubusercontent.com/AlexGordienko/Auto-Skelly/main/images/demo_header.png"
+      content="https://raw.githubusercontent.com/AlexGordienko/Auto-Skelly/main/docs/images/demo_header.png"
     />
     <meta name="twitter:creator" content="@alexgordienko_" key="twhandle" />
 
     <!-- {/* Open Graph */} -->
     <meta
       property="og:image"
-      content="https://raw.githubusercontent.com/AlexGordienko/Auto-Skelly/main/images/demo_header.png"
+      content="https://raw.githubusercontent.com/AlexGordienko/Auto-Skelly/main/docs/images/demo_header.png"
       key="ogimage"
     />
     <meta property="og:site_name" content="Auto Skelly " key="ogsitename" />
     <meta
       property="og:title"
-      content="Auto Skelly - A dead-simple UI Skeleton library by Alex Gordienko"
+      content="Auto Skelly - Reversible loading skeletons for any markup"
       key="ogtitle"
     />
     <meta property="og:type" content="website" key="ogtype" />
     <meta
       property="og:description"
-      content="This simple library helps you quickly create flexible skeletons of your components to help perceived render time for your content."
+      content="Auto Skelly is a tiny, framework-agnostic library that turns your real markup into animated loading skeletons and back again."
       key="ogdesc"
     />
     <meta
@@ -71,15 +74,11 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/ico" href="./favicon.ico" width="32px" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
 
-    <!-- Grab TailwindCSS for quick styling for demo. NOT USED IN ACTUAL JS PACKAGE-->
+    <!-- Grab TailwindCSS for quick styling for demo. NOT USED IN ACTUAL LIBRARY -->
     <link
       href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://unpkg.com/@tailwindcss/custom-forms@0.2.1/dist/custom-forms.min.css"
       rel="stylesheet"
     />
 
@@ -88,14 +87,50 @@
       rel="stylesheet"
     />
 
+    <!-- Prism.js for real, syntax-highlighted, copyable code samples. NOT USED IN ACTUAL LIBRARY -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+      rel="stylesheet"
+    />
+
     <link href="./main.css" rel="stylesheet" />
   </head>
   <body style="max-width: 1000px; margin: 0 auto" class="p-8">
-    <h1 class="text-3xl">Welcome to Auto Skelly!</h1>
+    <div class="flex justify-between items-center flex-wrap gap-2">
+      <div class="flex items-center gap-2">
+        <span class="text-xl font-bold">💀 Auto Skelly</span>
+        <span
+          class="text-xs font-mono bg-gray-800 text-white px-2 py-1 rounded-md"
+          >v1.0</span
+        >
+      </div>
+      <nav class="flex gap-4 text-sm font-bold">
+        <a
+          href="https://github.com/AlexGordienko/Auto-Skelly"
+          class="hover:underline"
+          >GitHub</a
+        >
+        <a
+          href="https://www.npmjs.com/package/auto-skelly"
+          class="hover:underline"
+          >npm</a
+        >
+      </nav>
+    </div>
+
+    <h1 class="text-3xl mt-6">Welcome to Auto Skelly!</h1>
     <p class="py-2">
-      This library is built to help you easily 'skellify' your objects with a
-      few easy shapes.
+      Auto Skelly turns the real elements already on your page into animated
+      loading skeletons, then hands you back the exact same elements when
+      you're ready to reveal them. No separate skeleton components to build or
+      keep in sync, no framework required.
     </p>
+
+    <img
+      src="./images/demo_header.png"
+      alt="Two example cards side by side: a fully loaded card on the left, and the same card skellified by Auto Skelly on the right."
+      class="w-full rounded-lg shadow-lg mt-6"
+    />
 
     <div
       class="bg-gray-200 p-6 rounded-md mt-8 leading-loose"
@@ -103,595 +138,522 @@
     >
       <h2 class="text-sm">TABLE OF CONTENTS</h2>
       <hr style="border-top: dotted 3px; color: gray" class="my-2" />
-      <p><a href="#WhyUseAutoSkelly">Why use AutoSkelly?</a></p>
-      <p><a href="#GettingStarted">Getting Started</a></p>
-      <p><a href="#Examples">Examples</a></p>
+      <p><a href="#why">Why use Auto Skelly?</a></p>
+      <p><a href="#getting-started">Getting Started</a></p>
+      <p><a href="#markup">Marking Up Elements</a></p>
       <ol class="list-decimal ml-6">
-        <li><a href="#Text">Text Objects</a></li>
-        <li><a href="#Images">Images</a></li>
-        <li><a href="#Circles">Circles</a></li>
-        <li><a href="#Buttons">Buttons</a></li>
+        <li><a href="#markup-text">Text</a></li>
+        <li><a href="#markup-image">Images</a></li>
+        <li><a href="#markup-circle">Circles</a></li>
+        <li><a href="#markup-button">Buttons</a></li>
       </ol>
-
-      <p><a href="#Customization">Customization</a></p>
+      <p><a href="#demo">Live Demo</a></p>
+      <p><a href="#lifecycle">Apply / Remove Lifecycle</a></p>
+      <p><a href="#theming">Theming</a></p>
       <ol class="list-decimal ml-6">
-        <li><a href="#Color">Color</a></li>
-        <li><a href="#Animation">Animation Type</a></li>
-        <li><a href="#Activation">Activation</a></li>
+        <li><a href="#theming-options">Constructor Options</a></li>
+        <li><a href="#theming-settheme">setTheme()</a></li>
+        <li><a href="#theming-css">CSS Custom Properties</a></li>
       </ol>
-      <p><a href="#API">API</a></p>
+      <p><a href="#animations">Animations</a></p>
+      <p><a href="#accessibility">Accessibility</a></p>
+      <p><a href="#api">API Reference</a></p>
       <ol class="list-decimal ml-6">
-        <li><a href="#Options">Options</a></li>
-        <li><a href="#Functions">Functions</a></li>
+        <li><a href="#api-options">Options</a></li>
+        <li><a href="#api-methods">Methods</a></li>
       </ol>
-      <p><a href="#Limitations">Limitations</a></p>
+      <p><a href="#links">Links</a></p>
     </div>
-    <p class="text-2xl pt-8 pb-2" id="WhyUseAutoSkelly">Why use AutoSkelly?</p>
+
+    <p class="text-2xl pt-8 pb-2" id="why">Why use Auto Skelly?</p>
     <p>
-      It is well known that load time of on-screen content is an important part
-      of user satisfaction. However, if the on-page content is complex and
-      'heavy' (lots of images for example), load times can take over a second.
-      To help improve the user experience, the concept of 'skeletoning' was
-      created. Essentially, a placeholder view of the relevant content is
-      created which is loaded quickly and replaced dynamically as soon as the
-      actual content becomes available. Examples of this in the real-world are
-      sites like YouTube, which rely heavily on skeletons when loading
-      image-heavy pages.
+      Load time of on-screen content is a big part of user satisfaction, and
+      image-heavy or data-heavy pages can take a while to become useful. To
+      soften that wait, many products show a "skeleton" — a placeholder
+      silhouette of the content that appears instantly and is swapped for the
+      real thing as soon as it's ready.
     </p>
     <br />
     <p>
-      The first card below is what an example <i>loaded</i> card would look
-      like. The second card is what AutoSkelly does to cards that are in the
-      process of <i>loading</i>. The magic of AutoSkelly is that you don't need
-      to design special skellified cards for your load screens. Instead, you
-      just duplicate the element you would use for your loaded page, add some
-      simple filler text or images, and pass in the AutoSkelly classes.
+      Normally that means hand-building a second, skeleton-shaped version of
+      every component and keeping the two in sync forever. Auto Skelly skips
+      that: you mark up your <em>real</em> content with a few
+      <code class="text-sm bg-gray-800 text-white font-mono p-1 rounded-md"
+        >skelly-*</code
+      >
+      classes, and the library measures it, covers it with a matching
+      placeholder, and — this is the headline feature of v1 — hands you back
+      the exact same, untouched elements the moment you call
+      <code class="text-sm bg-gray-800 text-white font-mono p-1 rounded-md"
+        >remove()</code
+      >. Nothing is destroyed or re-rendered, so skeletons can be shown,
+      hidden, and shown again as many times as you like. Try it for yourself
+      in the <a href="#demo" class="underline">live demo</a> below.
     </p>
 
-    <div class="grid place-items-center grid-cols-1 md:grid-cols-2 mt-8">
-      <div
-        class="w-full md:w-8/12 bg-white m-4 rounded-lg border-gray-300 shadow-lg"
+    <p class="text-3xl pt-8 pb-2" id="getting-started">Getting Started</p>
+    <p class="py-2 leading-loose">
+      Auto Skelly ships as an npm package with ESM/CJS builds, and as a single
+      IIFE bundle you can drop in with a plain
+      <code class="text-sm bg-gray-800 text-white font-mono p-1 rounded-md"
+        >&lt;script&gt;</code
       >
-        <p class="pt-4 pl-4 text-3xl">Card Title</p>
-        <p class="pl-4 pb-4 pt-2 text-sm">Card Subtitle</p>
-        <div
-          class="h-48 w-full bg-cover bg-center ..."
-          style="
-            background-image: url(https://jimmytechsf.com/wp-content/uploads/2020/06/Big-Sur.jpg);
-          "
-        ></div>
-        <p class="p-4 pb-2">
-          Card subtitle. This section would contain some longer text way may
-          span a few lines.
-        </p>
-        <button class="float-right p-2 m-2 font-bold bg-gray-100 rounded-lg">
-          Action
-        </button>
-      </div>
+      tag — no jQuery, no dependencies, no build step required. Pick whichever
+      fits your project.
+    </p>
 
-      <div
-        class="w-full md:w-8/12 bg-white m-4 rounded-lg border-gray-300 shadow-lg"
+    <p class="text-lg mt-6 pb-2">1. Install from npm</p>
+    <div class="code-block">
+      <span class="code-block-label">Shell</span>
+      <pre><code class="language-bash">npm i auto-skelly</code></pre>
+    </div>
+    <div class="code-block">
+      <span class="code-block-label">JavaScript</span>
+      <pre><code class="language-js">import { AutoSkelly } from "auto-skelly";
+
+const skelly = new AutoSkelly();
+skelly.apply();</code></pre>
+    </div>
+
+    <p class="text-lg mt-6 pb-2">2. Or load it from a CDN</p>
+    <div class="code-block">
+      <span class="code-block-label">HTML</span>
+      <pre><code class="language-html">&lt;script src="https://unpkg.com/auto-skelly"&gt;&lt;/script&gt;
+&lt;script&gt;
+  const skelly = new AutoSkelly();
+  skelly.apply();
+&lt;/script&gt;</code></pre>
+    </div>
+
+    <p class="text-lg mt-6 pb-2">3. Or self-host and auto-init</p>
+    <p class="pb-2">
+      Copy
+      <code class="text-sm bg-gray-800 text-white font-mono p-1 rounded-md"
+        >auto-skelly.global.js</code
       >
-        <div class="p-4 pb-0">
-          <p class="skelly-text text-3xl">Card Title</p>
-        </div>
-        <div class="p-4 pt-2">
-          <p class="skelly-text text-sm">Card Subtitle</p>
-        </div>
+      into your project. Add the
+      <code class="text-sm bg-gray-800 text-white font-mono p-1 rounded-md"
+        >data-skelly-auto</code
+      >
+      attribute to the script tag and Auto Skelly will find and skellify
+      every
+      <code class="text-sm bg-gray-800 text-white font-mono p-1 rounded-md"
+        >skelly-*</code
+      >
+      element on the page for you, with zero JavaScript of your own. Great for
+      static pages; if you need to reveal content programmatically (like the
+      demo on this page does) create your own instance instead, as shown
+      above.
+    </p>
+    <div class="code-block">
+      <span class="code-block-label">HTML</span>
+      <pre><code class="language-html">&lt;script src="./auto-skelly.global.js" data-skelly-auto&gt;&lt;/script&gt;</code></pre>
+    </div>
+
+    <p class="text-3xl pt-8 pb-2" id="markup">Marking Up Elements</p>
+    <p class="pb-2">
+      Add one of four classes to any element you want skellified. Auto Skelly
+      measures each element's own size and border radius, so the placeholder
+      always matches the space your real content takes up — there's nothing
+      else to configure.
+    </p>
+    <div class="code-block">
+      <span class="code-block-label">HTML</span>
+      <pre><code class="language-html">&lt;div class="card"&gt;
+  &lt;div class="avatar skelly-circle"&gt;&lt;/div&gt;
+  &lt;p class="skelly-text"&gt;Jordan Rivera&lt;/p&gt;
+  &lt;img class="skelly-image" src="cover.jpg" alt="" /&gt;
+  &lt;button class="skelly-button"&gt;View profile&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <p class="text-xl pt-8 pb-2" id="markup-text">skelly-text</p>
+    <p>
+      Add
+      <code class="text-sm bg-gray-800 text-white font-mono p-1 rounded-md"
+        >skelly-text</code
+      >
+      to any text element. For a single line, Auto Skelly draws one rounded
+      bar sized to the element's measured width and line-height. If the
+      element wraps onto two or more lines — its rendered height is at least
+      twice its line-height — Auto Skelly instead builds a stack of
+      individual line bars, one per wrapped line, with the last line rendered
+      shorter, so paragraphs read like real paragraphs instead of one flat
+      blob.
+    </p>
+
+    <p class="text-xl pt-8 pb-2" id="markup-image">skelly-image</p>
+    <p>
+      Add
+      <code class="text-sm bg-gray-800 text-white font-mono p-1 rounded-md"
+        >skelly-image</code
+      >
+      to an
+      <code class="text-sm bg-gray-800 text-white font-mono p-1 rounded-md"
+        >img</code
+      >
+      or any element acting as an image. The placeholder fills the element's
+      exact measured width and height (falling back to its
+      <code class="text-sm bg-gray-800 text-white font-mono p-1 rounded-md"
+        >width</code
+      >/<code class="text-sm bg-gray-800 text-white font-mono p-1 rounded-md"
+        >height</code
+      >
+      attributes, then a 16:9 box) and has no border radius by default, so it
+      sits flush with the edges of your real image.
+    </p>
+
+    <p class="text-xl pt-8 pb-2" id="markup-circle">skelly-circle</p>
+    <p>
+      Add
+      <code class="text-sm bg-gray-800 text-white font-mono p-1 rounded-md"
+        >skelly-circle</code
+      >
+      to avatars and other round elements. The placeholder is sized to the
+      larger of the element's measured width or height and is always forced
+      to a perfect circle, regardless of the original element's shape.
+    </p>
+
+    <p class="text-xl pt-8 pb-2" id="markup-button">skelly-button</p>
+    <p>
+      Add
+      <code class="text-sm bg-gray-800 text-white font-mono p-1 rounded-md"
+        >skelly-button</code
+      >
+      to a button-like element. The placeholder matches the button's own
+      measured size and border radius, so it reads as a disabled version of
+      the same control rather than a generic block.
+    </p>
+
+    <p class="text-3xl pt-8 pb-2" id="demo">Live Demo</p>
+    <p class="pb-2">
+      This card below is built from plain HTML with
+      <code class="text-sm bg-gray-800 text-white font-mono p-1 rounded-md"
+        >skelly-*</code
+      >
+      classes on its avatar, text, image, and button. Nothing here is a
+      screenshot or a separate "loading" component — it's the same DOM
+      swapping back and forth. Try it out:
+    </p>
+
+    <div
+      id="demo-card"
+      class="bg-white rounded-lg shadow-lg p-6 max-w-sm mx-auto mt-8"
+    >
+      <div class="flex items-center gap-4">
         <div
-          class="skelly-image h-48 w-full bg-cover bg-center"
-          style="
-            background-image: url(https://jimmytechsf.com/wp-content/uploads/2020/06/Big-Sur.jpg);
-          "
-        ></div>
-        <div class="m-4">
-          <p class="skelly-text">
-            Card subtitle. This section would contain some longer text way may
-            span a few lines.
+          class="skelly-circle rounded-full bg-indigo-500 text-white flex items-center justify-center font-bold flex-shrink-0"
+          style="width: 64px; height: 64px"
+        >
+          JR
+        </div>
+        <div>
+          <p class="skelly-text font-bold text-lg leading-tight">
+            Jordan Rivera
+          </p>
+          <p class="skelly-text text-sm text-gray-500 mt-1 leading-tight">
+            Product Designer
           </p>
         </div>
-        <div class="float-right m-2">
-          <button
-            class="float-right p-2 font-bold bg-gray-100 rounded-lg opacity-50 skelly-button"
-          >
-            Action
-          </button>
-        </div>
       </div>
-    </div>
-
-    <p class="text-3xl pt-8 pb-2" id="GettingStarted">Getting Started</p>
-    <p class="py-2 leading-loose">
-      Getting your page skelified is super simple! You will need the
-      <span class="bg-gray-800 text-white font-mono p-1 rounded-md"
-        >autoskelly.js</span
-      >
-      file, the
-      <span class="bg-gray-800 text-white font-mono p-1 rounded-md"
-        >autoskelly.css</span
-      >
-      file and minified
-      <span class="bg-gray-800 text-white font-mono p-1 rounded-md">jQuery</span
-      >. Place the autoskelly files in the root directory of your project and
-      then call the js file from the bottom of your
-      <span class="bg-gray-800 text-white font-mono p-1 rounded-md">body</span>
-      section of your
-      <span class="bg-gray-800 text-white font-mono p-1 rounded-md"
-        >index.html</span
-      >
-      as shown below.
-    </p>
-
-    <div style="display: flex; justify-content: center">
-      <iframe
-        src="https://carbon.now.sh/embed?bg=rgba%28238%2C240%2C242%2C1%29&t=seti&wt=none&l=htmlmixed&ds=false&dsyoff=20px&dsblur=68px&wc=false&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=%253Cbody%253E%250A%2520%2520%250A%2520%2520%2520%253C%21--%2520YOUR%2520CODE%2520HERE%2520--%253E%250A%2520%2520%250A%2509%253Cscript%2520src%253D%2522https%253A%252F%252Fcode.jquery.com%252Fjquery-3.6.0.min.js%2522%253E%253C%252Fscript%253E%250A%2520%2520%2520%2520%253Cscript%2520type%253D%2522text%252Fjavascript%2522%2520src%253D%2522.%252Fautoskelly.js%2522%253E%253C%252Fscript%253E%250A%253C%252Fbody%253E"
-        style="
-          width: 758px;
-          height: 302px;
-          border: 0;
-          transform: scale(1);
-          overflow: hidden;
-        "
-        sandbox="allow-scripts allow-same-origin"
-      >
-      </iframe>
-    </div>
-    <p>
-      That's all there is to it! From here, you can start customizing how you
-      want the skellification to work. Check out the examples below to improve
-      your user experience in minutes.
-    </p>
-
-    <p class="text-3xl pt-8 pb-2" id="Examples">Examples</p>
-
-    <p class="text-xl pt-8 pb-2" id="Text">Text</p>
-    <p>
-      If you want to skellify some text, simply add
-      <span class="bg-gray-800 text-white font-mono p-1 rounded-md"
-        >skelly-text</span
-      >
-      in the class of any text you want to adapt. Auto Skelly will automatically
-      determine the relevant height and width. Notice that this provides some
-      border radius by default.
-    </p>
-    <div class="grid place-items-center grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-      <div class="bg-white p-4 rounded-lg shadow-lg">
-        <p>Text area that should be skelified on page load.</p>
-      </div>
-
-      <div class="bg-white p-4 rounded-lg shadow-lg">
-        <p class="skelly-text">
-          Text area that should be skelified on page load.
-        </p>
-      </div>
-    </div>
-
-    <p class="text-lg mt-8 pb-2">HTML Code</p>
-    <p class="pb-2">
-      The
-      <span class="bg-gray-800 text-white font-mono p-1 rounded-md"
-        >skelly-text</span
-      >
-      class can be added to any
-      <span class="bg-gray-800 text-white font-mono p-1 rounded-md">p</span> tag
-      in your code, of any height, and it will automatically produce the correct
-      height skeleton. Notice that the two code fragments are exactly the same
-      save for the skelly class.
-    </p>
-    <div style="display: flex; justify-content: center">
-      <iframe
-        src="https://carbon.now.sh/embed?bg=rgba%28238%2C240%2C242%2C1%29&t=seti&wt=none&l=htmlmixed&ds=false&dsyoff=20px&dsblur=68px&wc=false&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=%253Cdiv%253E%250A%2520%2520%253Cp%253EText%2520area%2520that%2520should%2520be%2520skelified%2520on%2520page%2520load.%253C%252Fp%253E%250A%253C%252Fdiv%253E%250A%250A%253Cdiv%253E%250A%2520%2520%253Cp%2520class%253D%2522skelly-text%2522%253E%250A%2520%2520%2520%2520Text%2520area%2520that%2520should%2520be%2520skelified%2520on%2520page%2520load.%250A%2520%2520%253C%252Fp%253E%250A%253C%252Fdiv%253E"
-        style="
-          width: 630px;
-          height: 340px;
-          border: 0;
-          transform: scale(1);
-          overflow: hidden;
-        "
-        sandbox="allow-scripts allow-same-origin"
-      >
-      </iframe>
-    </div>
-
-    <p class="text-xl pt-8 pb-2" id="Images">Images</p>
-    <p>
-      If you want to skellify an image, simply add
-      <span class="bg-gray-800 text-white font-mono p-1 rounded-md"
-        >skelly-image</span
-      >
-      in the class of any image you want to adapt. Auto Skelly will
-      automatically determine the relevant height and width. Notice that this
-      provides no border radius by default in order to fill the entire space of
-      the image.
-    </p>
-    <div class="grid place-items-center grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-      <div class="bg-white p-4 rounded-lg shadow-lg">
-        <img
-          src="https://scx2.b-cdn.net/gfx/news/hires/2019/2-forest.jpg"
-          class="w-full"
-        />
-      </div>
-
-      <div class="bg-white p-4 rounded-lg shadow-lg">
-        <img
-          src="https://scx2.b-cdn.net/gfx/news/hires/2019/2-forest.jpg"
-          class="w-full skelly-image"
-        />
-      </div>
-    </div>
-    <p class="text-lg mt-8 pb-2">HTML Code</p>
-    <p class="pb-2">
-      The
-      <span class="bg-gray-800 text-white font-mono p-1 rounded-md"
-        >skelly-image</span
-      >
-      class can be added to any
-      <span class="bg-gray-800 text-white font-mono p-1 rounded-md">img</span>
-      tag in your code, of any height, and it will automatically produce the
-      correct height skeleton. Notice that the two code fragments are exactly
-      the same save for the skelly class.
-    </p>
-    <div style="display: flex; justify-content: center">
-      <iframe
-        src="https://carbon.now.sh/embed?bg=rgba%28238%2C240%2C242%2C1%29&t=seti&wt=none&l=htmlmixed&ds=false&dsyoff=20px&dsblur=68px&wc=false&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=%253Cdiv%253E%250A%2520%2520%253Cimg%250A%2520%2520%2520%2520src%253D%2522https%253A%252F%252Fscx2.b-cdn.net%252Fgfx%252Fnews%252Fhires%252F2019%252F2-forest.jpg%2522%250A%2520%2520%252F%253E%250A%253C%252Fdiv%253E%250A%250A%253Cdiv%253E%250A%2520%2520%253Cimg%250A%2520%2520%2520%2520src%253D%2522https%253A%252F%252Fscx2.b-cdn.net%252Fgfx%252Fnews%252Fhires%252F2019%252F2-forest.jpg%2522%250A%2520%2520%2520%2520class%253D%2522skelly-image%2522%250A%2520%2520%252F%253E%250A%253C%252Fdiv%253E"
-        style="
-          width: 698px;
-          height: 382px;
-          border: 0;
-          transform: scale(1);
-          overflow: hidden;
-        "
-        sandbox="allow-scripts allow-same-origin"
-      >
-      </iframe>
-    </div>
-
-    <p class="text-xl pt-8 pb-2" id="Circles">Circles</p>
-    <p>
-      Circle elements are common for things like profile pictures, so if you
-      want to skellify a circle, simply add
-      <span class="bg-gray-800 text-white font-mono p-1 rounded-md"
-        >skelly-circle</span
-      >
-      in the class of any circle you want to adapt. Auto Skelly will
-      automatically determine the relevant height and width.
-    </p>
-    <div class="grid place-items-center grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-      <div class="bg-white p-4 rounded-lg shadow-lg">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxoBnq05850hAXAOcv0CciJtz3dASMTGcBQY38EssxzZkD7mpDlgUj1HUlhHaFJlo5gEk&usqp=CAU"
-          style="width: 100px; height: 100px; border-radius: 100%"
-        />
-      </div>
-
-      <div class="bg-white p-4 rounded-lg shadow-lg">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxoBnq05850hAXAOcv0CciJtz3dASMTGcBQY38EssxzZkD7mpDlgUj1HUlhHaFJlo5gEk&usqp=CAU"
-          style="width: 100px; height: 100px; border-radius: 100%"
-          class="skelly-circle"
-        />
-      </div>
-    </div>
-    <p class="text-lg mt-8 pb-2">HTML Code</p>
-    <p class="pb-2">
-      The
-      <span class="bg-gray-800 text-white font-mono p-1 rounded-md"
-        >skelly-circle</span
-      >
-      class can be added to any
-      <span class="bg-gray-800 text-white font-mono p-1 rounded-md">img</span>
-      tag or
-      <span class="bg-gray-800 text-white font-mono p-1 rounded-md">div</span>
-      tag in your code, of any height, and it will automatically produce the
-      correct height skeleton. Notice that the two code fragments are exactly
-      the same save for the skelly class.
-    </p>
-    <div style="display: flex; justify-content: center">
-      <iframe
-        src="https://carbon.now.sh/embed?bg=rgba%28238%2C240%2C242%2C1%29&t=seti&wt=none&l=htmlmixed&ds=false&dsyoff=20px&dsblur=68px&wc=false&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=%253Cdiv%2520class%253D%2522bg-white%2520p-4%2520rounded-lg%2520shadow-lg%2522%253E%250A%2520%2520%253Cimg%250A%2520%2520%2520%2520src%253D%2522https%253A%252F%252Fencrypted-tbn0.gstatic.com%252Fimages%253Fq%253Dtbn%253AANd9GcSxoBnq05850hAXAOcv0CciJtz3dASMTGcBQY38EssxzZkD7mpDlgUj1HUlhHaFJlo5gEk%2526usqp%253DCAU%2522%250A%2520%2520%2520%2520style%253D%2522width%253A%2520100px%253B%2520height%253A%2520100px%253B%2520border-radius%253A%2520100%2525%2522%250A%2520%2520%252F%253E%250A%253C%252Fdiv%253E%250A%250A%253Cdiv%253E%250A%2520%2520%253Cimg%250A%2520%2520%2520%2520src%253D%2522https%253A%252F%252Fencrypted-tbn0.gstatic.com%252Fimages%253Fq%253Dtbn%253AANd9GcSxoBnq05850hAXAOcv0CciJtz3dASMTGcBQY38EssxzZkD7mpDlgUj1HUlhHaFJlo5gEk%2526usqp%253DCAU%2522%250A%2520%2520%2520%2520style%253D%2522width%253A%2520100px%253B%2520height%253A%2520100px%253B%2520border-radius%253A%2520100%2525%2522%250A%2520%2520%2520%2520class%253D%2522skelly-circle%2522%250A%2520%2520%252F%253E%250A%253C%252Fdiv%253E"
-        style="
-          width: 1024px;
-          height: 454px;
-          border: 0;
-          transform: scale(1);
-          overflow: hidden;
-        "
-        sandbox="allow-scripts allow-same-origin"
-      >
-      </iframe>
-    </div>
-
-    <p class="text-xl pt-8 pb-2" id="Buttons">Buttons</p>
-    <p>
-      Explicit buttons on cards that need to be loaded are common, so auto
-      skelly offers a class that will help make the look of these buttons
-      'disabled' while the class is applied. To use this feature, simply add
-      <span class="bg-gray-800 text-white font-mono p-1 rounded-md"
-        >skelly-button</span
-      >
-      in the class of any button you want to adapt. Auto Skelly will
-      automatically determine the relevant height and width of the text in the
-      button and will create the skeleton look.
-    </p>
-    <div class="grid place-items-center grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-      <div class="bg-white p-4 rounded-lg shadow-lg">
-        <button class="p-2 m-2 font-bold bg-gray-100 rounded-lg">
-          Button text!
-        </button>
-      </div>
-
-      <div class="bg-white p-4 rounded-lg shadow-lg">
-        <button class="p-2 m-2 font-bold bg-gray-100 rounded-lg skelly-button">
-          Button text!
-        </button>
-      </div>
-    </div>
-    <p class="text-lg mt-8 pb-2">HTML Code</p>
-    <p class="pb-2">
-      The
-      <span class="bg-gray-800 text-white font-mono p-1 rounded-md"
-        >skelly-button</span
-      >
-      class can be added to any
-      <span class="bg-gray-800 text-white font-mono p-1 rounded-md"
-        >button</span
-      >
-      element in your code, of any height, and it will automatically produce the
-      correct height skeleton. Notice how the elements shown have their own
-      styling classes already. Auto Skelly takes note of these styles to make
-      sure that the height and width are exactly what you want.
-    </p>
-    <div style="display: flex; justify-content: center">
-      <iframe
-        src="https://carbon.now.sh/embed?bg=rgba%28238%2C240%2C242%2C1%29&t=seti&wt=none&l=htmlmixed&ds=false&dsyoff=20px&dsblur=68px&wc=false&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=%253Cdiv%2520class%253D%2522bg-white%2520p-4%2520rounded-lg%2520shadow-lg%2522%253E%250A%2520%2520%253Cbutton%2520class%253D%2522p-2%2520m-2%2520font-bold%2520bg-gray-100%2520rounded-lg%2522%253E%250A%2520%2520%2520%2520Button%2520text%21%250A%2520%2520%253C%252Fbutton%253E%250A%253C%252Fdiv%253E%250A%250A%253Cdiv%2520class%253D%2522bg-white%2520p-4%2520rounded-lg%2520shadow-lg%2522%253E%250A%2520%2520%253Cbutton%2520class%253D%2522p-2%2520m-2%2520font-bold%2520bg-gray-100%2520rounded-lg%2520skelly-button%2522%253E%250A%2520%2520%2520%2520Button%2520text%21%250A%2520%2520%253C%252Fbutton%253E%250A%253C%252Fdiv%253E"
-        style="
-          width: 766px;
-          height: 364px;
-          border: 0;
-          transform: scale(1);
-          overflow: hidden;
-        "
-        sandbox="allow-scripts allow-same-origin"
-      >
-      </iframe>
-    </div>
-
-    <p class="text-3xl pt-8 pb-2" id="Customization">Customization</p>
-
-    <p class="text-xl pt-8 pb-2" id="Color">Change Color</p>
-    <p>
-      Having a library to auto-skelify your components is great, but we can take
-      this one step further to provide your users the best experience possible.
-      By creating an
-      <span class="bg-gray-800 text-white font-mono p-1 rounded-md"
-        >AutoSkelly()</span
-      >
-      object, you can configure a bunch of things about how the skeletons look
-      and allow your end users to directly modify the look of their skeletons!
-      One possible way to use this is feature is to provide your users with some
-      'Theme' options, so if they want a dark theme, the skellies will be
-      lighter. If they want a light theme, the skellies will be darker. However,
-      given that you can add any color you like with the AutoSkelly object, the
-      sky's the limit!
-    </p>
-    <p>
-      Press any of the buttons below to give it a try! The theming happens
-      dynamically and applied to all skellies (try scrolling up to other
-      examples after clicking to see how they change as well!)
-    </p>
-    <div class="flex justify-center mt-8">
-      <button
-        onclick="lightTheme()"
-        class="p-2 m-2 font-bold bg-white rounded-lg"
-      >
-        Light Theme
-      </button>
-      <button
-        onclick="darkTheme()"
-        class="p-2 m-2 font-bold text-white bg-gray-800 rounded-lg"
-      >
-        Dark Theme
-      </button>
-      <input
-        type="text"
-        style="height: 40px; margin-top: 8px"
-        class="pl-4 rounded mx-2"
-        id="colorField"
-        value="#3300FF"
+      <img
+        src="./images/demo_header.png"
+        alt="Project preview"
+        class="skelly-image w-full h-40 object-cover rounded-md mt-4"
       />
-      <button
-        onclick="submitColor()"
-        class="p-2 m-2 font-bold bg-white rounded-lg"
-      >
-        Submit Color
-      </button>
-    </div>
-    <div class="flex justify-center mt-8">
-      <div class="bg-white p-4 rounded-lg shadow-lg">
-        <p class="skelly-text skelly-color">
-          Text area that should be skelified on page load.
-        </p>
+      <p class="skelly-text mt-4 text-sm text-gray-600 leading-relaxed">
+        Auto Skelly covers this card with a matching skeleton, then hands the
+        exact same elements back untouched — no re-render, no flash, no
+        separate loading component to maintain.
+      </p>
+      <div class="flex justify-end mt-4">
+        <button
+          class="skelly-button bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg"
+        >
+          View Profile
+        </button>
       </div>
     </div>
-    <p class="text-lg mt-8 pb-2">JavaScript Code</p>
-    <p class="pb-2">
-      The
-      <span class="bg-gray-800 text-white font-mono p-1 rounded-md"
-        >AutoSkelly()</span
-      >
-      gives you access to a function called
-      <span class="bg-gray-800 text-white font-mono p-1 rounded-md"
-        >changeSkellyColor()</span
-      >
-      which accepts a HEX string input and will use that color to theme all
-      skellies. Use the code below to get started.
+
+    <p
+      id="demo-status"
+      class="text-center text-sm font-mono text-gray-500 mt-4"
+    >
+      Showing: content
     </p>
-    <div style="display: flex; justify-content: center">
-      <iframe
-        src="https://carbon.now.sh/embed?bg=rgba%28238%2C240%2C242%2C1%29&t=seti&wt=none&l=auto&ds=false&dsyoff=20px&dsblur=68px&wc=false&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=const%2520skelly%2520%253D%2520new%2520AutoSkelly%28%29%253B%250A%250Afunction%2520setColor%28%29%2520%257B%250A%2520%2520%252F%252F%2520set%2520the%2520skelly%2520theme%2520for%2520all%2520skelly%2520types%250A%2520%2520skelly.changeSkellyColor%28%2522%2523e5e5e5%2522%29%253B%250A%257D"
-        style="
-          width: 538px;
-          height: 274px;
-          border: 0;
-          transform: scale(1);
-          overflow: hidden;
-        "
-        sandbox="allow-scripts allow-same-origin"
+
+    <div class="flex flex-wrap justify-center gap-2 mt-4">
+      <button
+        id="demo-show"
+        class="demo-btn p-2 px-4 m-1 font-bold bg-white rounded-lg shadow"
       >
-      </iframe>
+        Show skeleton
+      </button>
+      <button
+        id="demo-reveal"
+        class="demo-btn p-2 px-4 m-1 font-bold bg-white rounded-lg shadow"
+      >
+        Reveal content
+      </button>
+      <button
+        id="demo-reload"
+        class="demo-btn p-2 px-4 m-1 font-bold text-white bg-gray-800 rounded-lg shadow"
+      >
+        Reload (2s)
+      </button>
     </div>
 
-    <p class="text-xl pt-8 pb-2" id="Animation">Change Animation Type</p>
-    <p>
-      To further provide a more diverse set of customizability and theming
-      opportunities,
-      <span class="bg-gray-800 text-white font-mono p-1 rounded-md"
-        >AutoSkelly()</span
+    <div class="flex flex-wrap items-center justify-center gap-2 mt-6">
+      <span class="text-xs uppercase tracking-wide text-gray-500 mr-2"
+        >Color</span
       >
-      gives you access to a few different kinds of animations. All crafted for
-      you! All you need to do is specify the kind of animation.
-    </p>
-    <p>
-      Press any of the buttons below to give it a try! The theming happens
-      dynamically and applied to all skellies (try scrolling up to other
-      examples after clicking to see how they change as well!)
-    </p>
-    <div class="flex justify-center mt-8">
       <button
-        onclick="standardAnimation()"
-        class="p-2 m-2 font-bold bg-white rounded-lg"
+        id="theme-light"
+        class="demo-btn p-2 px-4 m-1 font-bold bg-white rounded-lg shadow"
       >
-        standard
+        Light
       </button>
       <button
-        onclick="bigPulseAnimation()"
-        class="p-2 m-2 font-bold bg-white rounded-lg"
+        id="theme-dark"
+        class="demo-btn p-2 px-4 m-1 font-bold text-white bg-gray-800 rounded-lg shadow"
       >
-        bigPulse
+        Dark
+      </button>
+      <label class="flex items-center gap-2 bg-white rounded-lg shadow p-2 m-1">
+        <span class="text-xs text-gray-500">Custom</span>
+        <input type="color" id="theme-color" value="#e3e3e3" />
+      </label>
+    </div>
+
+    <div class="flex flex-wrap items-center justify-center gap-2 mt-4 mb-8">
+      <span class="text-xs uppercase tracking-wide text-gray-500 mr-2"
+        >Animation</span
+      >
+      <button
+        class="anim-btn demo-btn p-2 px-4 m-1 font-bold bg-white rounded-lg shadow"
+        data-skelly-animation="pulse"
+      >
+        pulse
       </button>
       <button
-        onclick="gradientAnimation()"
-        class="p-2 m-2 font-bold bg-white rounded-lg"
+        class="anim-btn demo-btn p-2 px-4 m-1 font-bold bg-white rounded-lg shadow"
+        data-skelly-animation="extraPulse"
+      >
+        extraPulse
+      </button>
+      <button
+        class="anim-btn demo-btn p-2 px-4 m-1 font-bold bg-white rounded-lg shadow"
+        data-skelly-animation="gradient"
       >
         gradient
       </button>
-    </div>
-    <div class="flex justify-center mt-8">
-      <div class="bg-white p-4 rounded-lg shadow-lg">
-        <p class="skelly-text skelly-color">
-          Text area that should be skelified on page load.
-        </p>
-      </div>
-    </div>
-    <p class="mt-8">
-      Please note that the gradient option comes with its own color options
-      which you would need to overide if you wanted to make them your own. Check
-      the API below for more on this.
-    </p>
-    <p class="text-lg mt-8 pb-2">JavaScript Code</p>
-    <p class="pb-2">
-      The
-      <span class="bg-gray-800 text-white font-mono p-1 rounded-md"
-        >AutoSkelly()</span
-      >
-      gives you access to a function called
-      <span class="bg-gray-800 text-white font-mono p-1 rounded-md"
-        >changeSkellyColor()</span
-      >
-      which accepts a HEX string input and will use that color to theme all
-      skellies. Use the code below to get started.
-    </p>
-    <div style="display: flex; justify-content: center">
-      <iframe
-        src="https://carbon.now.sh/embed?bg=rgba%28238%2C240%2C242%2C1%29&t=seti&wt=none&l=auto&ds=false&dsyoff=20px&dsblur=68px&wc=false&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=const%2520skelly%2520%253D%2520new%2520AutoSkelly%28%29%253B%250A%250Afunction%2520gradientAnimation%28%29%2520%257B%250A%2520%2520%252F%252F%2520set%2520the%2520kind%2520of%2520gradient%2520that%2520you%2520want%2520from%253A%250A%2520%2520%252F%252F%2520%2522standard%2522%252C%2520%2522bigPulse%2522%252C%2520or%2520%2522gradient%2522%250A%2520%2520skelly.changeSkellyAnimation%28%2522gradient%2522%29%253B%250A%257D"
-        style="
-          width: 583px;
-          height: 292px;
-          border: 0;
-          transform: scale(1);
-          overflow: hidden;
-        "
-        sandbox="allow-scripts allow-same-origin"
-      >
-      </iframe>
-    </div>
-
-    <p class="text-xl pt-8 pb-2" id="Activation">
-      Activate or Deactivate AutoSkelly
-    </p>
-    <p>
-      In the case that user's don't want to see animations of any kind when page
-      contents is loading, you can use the
-      <span class="bg-gray-800 text-white font-mono p-1 rounded-md"
-        >activateSkelly()</span
-      >
-      to specify the user's preference.
-    </p>
-    <p>
-      Press either of the buttons below to give it a try! The theming happens
-      dynamically and applied to all skellies (try scrolling up to other
-      examples after clicking to see how they change as well!)
-    </p>
-    <div class="flex justify-center mt-8">
       <button
-        onclick="activate()"
-        class="p-2 m-2 font-bold bg-white rounded-lg"
+        class="anim-btn demo-btn p-2 px-4 m-1 font-bold bg-white rounded-lg shadow"
+        data-skelly-animation="none"
       >
-        activate
-      </button>
-      <button
-        onclick="deactivate()"
-        class="p-2 m-2 font-bold bg-white rounded-lg"
-      >
-        deactivate
+        none
       </button>
     </div>
-    <div class="flex justify-center mt-8">
-      <div class="bg-white p-4 rounded-lg shadow-lg">
-        <p class="skelly-text skelly-color">
-          Text area that should be skelified on page load.
-        </p>
+
+    <p class="text-3xl pt-8 pb-2" id="lifecycle">Apply / Remove Lifecycle</p>
+    <p class="pb-2">
+      <code class="text-sm bg-gray-800 text-white font-mono p-1 rounded-md"
+        >apply()</code
+      >
+      finds every matching
+      <code class="text-sm bg-gray-800 text-white font-mono p-1 rounded-md"
+        >skelly-*</code
+      >
+      element, covers it with a placeholder, and hides — but does not
+      remove — the original. Calling it again is safe: elements already
+      covered are skipped.
+      <code class="text-sm bg-gray-800 text-white font-mono p-1 rounded-md"
+        >remove()</code
+      >
+      restores every covered element back to exactly how it was. Both methods
+      accept an optional root to scope the operation to part of the page.
+    </p>
+    <div class="code-block">
+      <span class="code-block-label">JavaScript</span>
+      <pre><code class="language-js">const skelly = new AutoSkelly();
+
+skelly.apply();  // cover every .skelly-* element with a placeholder
+// ...fetch data...
+skelly.remove(); // restore the original elements exactly as they were
+
+// Scope either call to part of the page:
+const card = document.querySelector("#profile-card");
+skelly.apply(card);
+skelly.remove(card);
+
+// True whenever at least one placeholder is currently showing:
+skelly.active;</code></pre>
+    </div>
+
+    <p class="text-3xl pt-8 pb-2" id="theming">Theming</p>
+
+    <p class="text-xl pt-8 pb-2" id="theming-options">Constructor Options</p>
+    <p class="pb-2">
+      Set a default color and animation when you create your instance.
+    </p>
+    <div class="code-block">
+      <span class="code-block-label">JavaScript</span>
+      <pre><code class="language-js">const skelly = new AutoSkelly({
+  color: "#e3e3e3",
+  animation: "pulse", // "pulse" | "extraPulse" | "gradient" | "none"
+  root: document,     // default root for apply()/remove() with no args
+});</code></pre>
+    </div>
+
+    <p class="text-xl pt-8 pb-2" id="theming-settheme">setTheme()</p>
+    <p class="pb-2">
+      Change the color and/or animation on the fly. It updates every
+      currently-applied placeholder live, without needing to
+      <code class="text-sm bg-gray-800 text-white font-mono p-1 rounded-md"
+        >remove()</code
+      >
+      and
+      <code class="text-sm bg-gray-800 text-white font-mono p-1 rounded-md"
+        >apply()</code
+      >
+      again — this is exactly what the color and animation buttons above are
+      wired to.
+    </p>
+    <div class="code-block">
+      <span class="code-block-label">JavaScript</span>
+      <pre><code class="language-js">skelly.setTheme({ color: "#374151" });
+skelly.setTheme({ animation: "gradient" });
+skelly.setTheme({ color: "#111827", animation: "extraPulse" });</code></pre>
+    </div>
+
+    <p class="text-xl pt-8 pb-2" id="theming-css">CSS Custom Properties</p>
+    <p class="pb-2">
+      Under the hood, placeholders read their color and animation duration
+      from CSS custom properties, so you can theme them directly in your own
+      stylesheet too — handy for dark mode via a media query or class, with no
+      JavaScript at all.
+    </p>
+    <div class="code-block">
+      <span class="code-block-label">CSS</span>
+      <pre><code class="language-css">:root {
+  --skelly-color: #e3e3e3;
+  --skelly-duration: 2s; /* 5s is the default for "gradient" */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --skelly-color: #374151;
+  }
+}</code></pre>
+    </div>
+
+    <p class="text-3xl pt-8 pb-2" id="animations">Animations</p>
+    <p class="pb-2">
+      Pass any of these to
+      <code class="text-sm bg-gray-800 text-white font-mono p-1 rounded-md"
+        >animation</code
+      >
+      or
+      <code class="text-sm bg-gray-800 text-white font-mono p-1 rounded-md"
+        >setTheme()</code
+      >. Try each one on the live demo above.
+    </p>
+    <div class="flex flex-col mt-4">
+      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+          <div
+            class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
+          >
+            <table class="min-w-full divide-y divide-gray-200">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    Value
+                  </th>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    Description
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-200">
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">
+                    pulse
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-500">
+                    The default. A gentle opacity fade in and out.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">
+                    extraPulse
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-500">
+                    A bolder scale-and-shadow pulse, more attention-grabbing
+                    than the standard pulse.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">
+                    gradient
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-500">
+                    An animated diagonal gradient sweep across the placeholder.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">
+                    none
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-500">
+                    A static, unanimated placeholder in a solid color.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
-    <p class="mt-8">
-      Please note that the gradient option comes with its own color options
-      which you would need to overide if you wanted to make them your own.
-    </p>
-    <p class="text-lg mt-8 pb-2">JavaScript Code</p>
-    <p class="pb-2">
-      The
-      <span class="bg-gray-800 text-white font-mono p-1 rounded-md"
-        >AutoSkelly()</span
-      >
-      gives you access to a function called
-      <span class="bg-gray-800 text-white font-mono p-1 rounded-md"
-        >activateSkelly()</span
-      >
-      which accepts a true or false input. Use the code below to get started.
-    </p>
-    <div style="display: flex; justify-content: center">
-      <iframe
-        src="https://carbon.now.sh/embed?bg=rgba%28238%2C240%2C242%2C1%29&t=seti&wt=none&l=auto&ds=false&dsyoff=20px&dsblur=68px&wc=false&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=const%2520skelly%2520%253D%2520new%2520AutoSkelly%28%29%253B%250A%250Afunction%2520deactivate%28%29%2520%257B%250A%2520%2520%252F%252F%2520false%2520to%2520deactivate%252C%2520true%2520to%2520activate%250A%2520%2520skelly.activateSkelly%28false%29%253B%250A%257D"
-        style="
-          width: 514px;
-          height: 284px;
-          border: 0;
-          transform: scale(1);
-          overflow: hidden;
-        "
-        sandbox="allow-scripts allow-same-origin"
-      >
-      </iframe>
-    </div>
 
-    <p class="text-3xl pt-8 pb-2" id="API">API</p>
-    <p>
-      AutoSkelly gives you a bunch of options that you can use to configure
-      autoskelly yourself, or access through the provided methods.
-    </p>
-    <p class="text-xl mt-4" id="Options">Options</p>
+    <p class="text-3xl pt-8 pb-2" id="accessibility">Accessibility</p>
+    <p class="pb-2">Auto Skelly handles a few accessibility details for you automatically:</p>
+    <ul class="list-disc ml-6 leading-loose">
+      <li>
+        Every placeholder is marked
+        <code class="text-sm bg-gray-800 text-white font-mono p-1 rounded-md"
+          >aria-hidden="true"</code
+        >, so screen readers skip the fake content entirely.
+      </li>
+      <li>
+        The parent of each covered element gets
+        <code class="text-sm bg-gray-800 text-white font-mono p-1 rounded-md"
+          >aria-busy="true"</code
+        >
+        for as long as any of its children are skellified, and it's
+        removed automatically once every sibling has been restored.
+      </li>
+      <li>
+        All animations are wrapped in a
+        <code class="text-sm bg-gray-800 text-white font-mono p-1 rounded-md"
+          >prefers-reduced-motion</code
+        >
+        media query, so visitors who've asked their OS for reduced motion see
+        static placeholders instead of moving ones — no configuration needed.
+      </li>
+    </ul>
 
-    <div class="flex flex-col mt-8">
+    <p class="text-3xl pt-8 pb-2" id="api">API Reference</p>
+
+    <p class="text-xl mt-4" id="api-options">Options</p>
+    <p class="pb-2">Passed to <code class="text-sm bg-gray-800 text-white font-mono p-1 rounded-md">new AutoSkelly(options)</code>.</p>
+    <div class="flex flex-col mt-4">
       <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
           <div
@@ -710,13 +672,13 @@
                     scope="col"
                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
-                    Default
+                    Type
                   </th>
                   <th
                     scope="col"
                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
-                    Type
+                    Default
                   </th>
                   <th
                     scope="col"
@@ -728,80 +690,44 @@
               </thead>
               <tbody class="bg-white divide-y divide-gray-200">
                 <tr>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex items-center">
-                      <p>color</p>
-                    </div>
+                  <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">
+                    color
                   </td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <p>#e6e6e6</p>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm">string</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm">
+                    "#e3e3e3"
                   </td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <p>string</p>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    <p>
-                      Specifies the color of the skelly elements themselves.
-                      Defaults to grey.
-                    </p>
+                  <td class="px-6 py-4 text-sm text-gray-500">
+                    Placeholder background color.
                   </td>
                 </tr>
                 <tr>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex items-center">
-                      <p>animation</p>
-                    </div>
+                  <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">
+                    animation
                   </td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <p>pulse</p>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm">
+                    "pulse" | "extraPulse" | "gradient" | "none"
                   </td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <p>string</p>
-                  </td>
-                  <td class="px-6 py-4 whitespace-normal text-sm text-gray-500">
-                    <p>
-                      Specifies the kind of animation being played on the
-                      skellies. The default is "pulese", which corresponds to
-                      'standard'. Can be "pulse", "extraPulse", or "gradient".
-                    </p>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm">"pulse"</td>
+                  <td class="px-6 py-4 text-sm text-gray-500">
+                    Placeholder animation.
                   </td>
                 </tr>
                 <tr>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex items-center">
-                      <p>gradientColors</p>
-                    </div>
+                  <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">
+                    root
                   </td>
-                  <td class="px-6 py-4 whitespace-normal">
-                    <p>["#ee7752", "#e73c7e", "#23a6d5", "#23d5ab"]</p>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm">
+                    ParentNode
                   </td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <p>array</p>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm">
+                    document
                   </td>
-                  <td class="px-6 py-4 whitespace-normal text-sm text-gray-500">
-                    <p>
-                      Specifies the colors used in the "gradient" animation
-                      option.
-                    </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex items-center">
-                      <p>active</p>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <p>true</p>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <p>boolean</p>
-                  </td>
-                  <td class="px-6 py-4 whitespace-normal text-sm text-gray-500">
-                    <p>
-                      States if the animation portion of the skelly is active or
-                      turned off and set to a constant color.
-                    </p>
+                  <td class="px-6 py-4 text-sm text-gray-500">
+                    Default root that <code>apply()</code>/<code
+                      >remove()</code
+                    >
+                    search and restore within when called with no argument.
                   </td>
                 </tr>
               </tbody>
@@ -810,53 +736,108 @@
         </div>
       </div>
     </div>
-    <p class="text-xl mt-12 mb-4" id="Functions">Functions</p>
-    <p>
-      The functions of AutoSkelly allow you to modify particular things about
-      the skelletons themselves dynamically in other to make them fit your
-      theme, or just improve the user experience overall.
-    </p>
-    <div style="display: flex; justify-content: center">
-      <iframe
-        src="https://carbon.now.sh/embed?bg=rgba%28238%2C240%2C242%2C1%29&t=seti&wt=none&l=auto&ds=false&dsyoff=20px&dsblur=68px&wc=false&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=%252F%252Fjs%2520%250A%250A%252F%252F%2520create%2520your%2520Skelly%2520instance%250Aconst%2520skelly%2520%253D%2520new%2520AutoSkelly%28%29%253B%250A%250A%252F%252F%2520set%2520the%2520theme%2520for%2520all%2520skelly%2520elements.%2520%250A%252F%252F%2520%2520you%2520can%2520call%2520this%2520function%2520with%2520%253C2%2520parameters%252C%2520%250A%252F%252F%2520%2520it%2520will%2520set%2520the%2520other%2520one%2520to%2520default.%250A%252F%252F%2520%2520Both%2520%2560color%2560%2520and%2520%2560animation%2560%2520should%2520be%2520strings.%250Askelly.setSkelly%28color%252C%2520animation%29%253B%250A%250A%252F%252F%2520change%2520the%2520color%2520of%2520the%2520skelly%2520theme%2520by%2520including%250A%252F%252F%2520%2520a%2520hex%2520as%2520the%2520parameter.%250Askelly.changeSkellyColor%28color%29%253B%250A%2520%2520%250A%252F%252F%2520change%2520the%2520animation%2520used%2520by%2520the%2520skelly%2520to%2520%250A%252F%252F%2520%2520%2522pulse%2522%252C%2520%2522extraPulse%2522%252C%2520or%2520%2522gradient%2522.%250Askelly.changeSkellyAnimation%28animation%29%253B%250A%250A%252F%252F%2520either%2520activate%2520or%2520deactivate%2520the%2520skelly%2520animations%250A%252F%252F%2520%2520set%2520true%2520for%2520active%2520and%2520false%2520for%2520inactive.%250Askelly.activateSkelly%28boolean%29%253B"
-        style="
-          width: 615px;
-          height: 562px;
-          border: 0;
-          transform: scale(1);
-          overflow: hidden;
-        "
-        sandbox="allow-scripts allow-same-origin"
-      >
-      </iframe>
+
+    <p class="text-xl mt-12 mb-4" id="api-methods">Methods</p>
+    <div class="flex flex-col mt-4">
+      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+          <div
+            class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
+          >
+            <table class="min-w-full divide-y divide-gray-200">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    Member
+                  </th>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    Description
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-200">
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">
+                    apply(root?)
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-500">
+                    Covers every matching element under
+                    <code>root</code> (or the instance's default root) with a
+                    placeholder. Safe to call repeatedly.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">
+                    remove(root?)
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-500">
+                    Restores every covered element back to its original
+                    state, optionally scoped to elements within
+                    <code>root</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">
+                    setTheme({ color?, animation? })
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-500">
+                    Updates color and/or animation on every currently-applied
+                    placeholder, live.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">
+                    active
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-500">
+                    Read-only getter. <code>true</code> while at least one
+                    placeholder is currently covering content.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <p class="text-2xl pt-8 pb-2" id="Limitations">Known limitations</p>
-    <p>
-      AutoSkelly works by grabbing the size of given elements on first attempted
-      render by your browser and using that height and width to create the right
-      size skeleton. If you resize your browser window after the first load (and
-      the autoskelly instances are not replaced by the intended content) you
-      will see that some skeletons won't resize correctly anymore. This is known
-      and okay since the primary use case for these skeletons is to act as a
-      placeholder for real content arriving soon. This is just a heads up in
-      case some of your content takes a very long time to load and your users
-      enjoy resizing their windows while waiting!
-    </p>
+    <p class="text-2xl pt-8 pb-2" id="links">Links</p>
+    <div class="flex flex-wrap gap-2 mt-4">
+      <a
+        href="https://github.com/AlexGordienko/Auto-Skelly"
+        class="p-2 px-4 font-bold bg-white rounded-lg shadow"
+        >GitHub Repo</a
+      >
+      <a
+        href="https://www.npmjs.com/package/auto-skelly"
+        class="p-2 px-4 font-bold bg-white rounded-lg shadow"
+        >npm Package</a
+      >
+    </div>
 
     <p class="mt-8 mb-4">
-      Thank you for using AutoSkelly! If you have any questions about the
+      Thank you for using Auto Skelly! If you have any questions about the
       library, please feel free to reach out to me at
-      <a href="mailto:alex@alexgordienko.com">alex@alexgordienko.com</a>
+      <a href="mailto:alex@alexgordienko.com" class="underline"
+        >alex@alexgordienko.com</a
+      >
     </p>
-    <!-- Package linked -->
-    <!-- jQuery will be a dependency of this package. -->
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"
-    ></script>
-    <script type="text/javascript" src="./autoskelly.js"></script>
+
+    <!-- Prism core + the three language grammars used by the code samples above. NOT USED IN ACTUAL LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-clike.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+
+    <!-- The library: exposes window.AutoSkelly. No auto-init, this demo drives it manually. -->
+    <script type="text/javascript" src="./auto-skelly.global.js"></script>
     <script type="text/javascript" src="./example.js"></script>
   </body>
 </html>
