@@ -23,7 +23,31 @@
     "ux",
     "perceived-performance"
   ],
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "unpkg": "./dist/auto-skelly.global.js",
+  "jsdelivr": "./dist/auto-skelly.global.js",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
   "scripts": {
-    "start": "npx serve docs"
+    "start": "npx serve docs",
+    "build": "tsup && npm run copy:demo",
+    "copy:demo": "cp dist/auto-skelly.global.js docs/auto-skelly.global.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3"
   }
 }
